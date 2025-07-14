@@ -1,0 +1,392 @@
+Table{
+    font-family: Century gothic;
+
+}
+
+.personal-card-heading {
+    background: linear-gradient(90deg,
+            #af0202 0%,
+            /* Red color */
+            rgba(176, 3, 3, 0.58) 66.96%,
+            rgba(255, 0, 0, 0) 100%);
+    /* Transparent red */
+    color: white;
+    /* Keep text color as white */
+
+    padding: 3px 40px 0px 14px;
+    width: 500px;
+    height: 40px;
+    letter-spacing: 5px;
+    font-size: 20px;
+    font-family: 'Century Gothic', sans-serif;
+    margin-left: 10px;
+    margin-top: -10px;
+}
+.custom-table th, 
+.custom-table td {
+    border: 1px solid  black !important;  /* Bold border for all table cells */
+}
+
+.custom-table {
+    border: 1px solid black !important;  /* Bold border for table */
+    border-collapse: collapse !important; /* Ensures proper border alignment */
+}
+
+
+
+.backimg {
+    background-image: url('../imgs/5.jpg');
+    background-size: auto;
+    background-position: center;
+    background-repeat: repeat;
+    width: 100%;
+    min-height: 10vh;
+    height: 100%;
+    box-sizing: border-box;;
+
+}
+
+.idcardbackimg {
+    background-image: url('../imgs/5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    width: 100%;
+    min-height: 12vh;
+    height: 100vh;
+    box-sizing: border-box;;
+
+}
+
+
+.corner_img {
+    max-width: 100%;
+    /* Ensures the image does not exceed its container width */
+    height: auto;
+    /* Maintains the aspect ratio */
+    display: block;
+    /* Removes inline spacing */
+    margin-left: -12px;
+}
+
+/* Mobile View (up to 600px) */
+@media only screen and (max-width: 600px) {
+    .corner_img {
+        height: 80px;
+        /* Reduce height for smaller devices */
+        max-width: 90%;
+        /* Ensure it fits within smaller screens */
+    }
+}
+
+/* Tablet View (601px to 1024px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .corner_img {
+        height: 150px;
+
+        /* Adjust height for tablets */
+        max-width: 100%;
+    }
+}
+
+/* Desktop View (above 1024px) */
+@media only screen and (min-width: 1025px) {
+    .corner_img {
+        height: 130px;
+        /* Default size for larger screens */
+        max-width: 100%;
+    }
+}
+
+.logo-container {
+    position: absolute;
+    padding-left: 15%;
+    /* Makes the logo container fixed at the top */
+    top: 0;
+    /* Position at the very top of the screen */
+    left: 0;
+    width: 100%;
+    /* Stretch across the screen width */
+    display: flex;
+    justify-content: center;
+    /* Centers the logos horizontally */
+    align-items: center;
+    gap: 20px;
+    z-index: 1000;
+    /* Ensures it stays on top of other elements */
+
+}
+
+.logo1 {
+    height: 150px;
+    width: 400px;
+
+}
+
+.logo2 {
+    height: 120px;
+    width: 400px;
+}
+.label-colour{
+    color: black;
+}
+
+/* Mobile View */
+@media only screen and (max-width: 600px) {
+
+    .logo1,
+    .logo2 {
+        height: 40px;
+        /* Reduce height for mobile view */
+    }
+
+    .logo1 {
+        margin-left: 50px;
+    }
+
+    .logo2 {
+        width: 220px;
+        /* Reduce width for mobile view */
+    }
+
+    .logo-container {
+        gap: 10px;
+        /* Reduce gap between logos for mobile */
+    }
+}
+
+/* Tablet View */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+
+    .logo1,
+    .logo2 {
+        height: 80px;
+        /* Adjust height for tablets */
+
+    }
+
+    .logo1 {
+        margin-left: 20px;
+    }
+
+    .logo-container {
+        gap: 15px;
+        /* Adjust gap for tablets */
+    }
+}
+
+/* Desktop View */
+@media only screen and (min-width: 1025px) {
+
+    .logo1,
+    .logo2 {
+        height: 130px;
+        /* Default size for larger screens */
+
+
+    }
+
+    .logo1 {
+        width: 190px;
+        margin-left: 50px;
+    }
+
+    .logo2 {
+        width: 500px;
+        height: 100px;
+    }
+
+    .logo-container {
+        gap: 30px;
+        /* Maintain normal gap for desktop view */
+    }
+}
+
+.highlight {
+    color: red;
+}
+
+.para2 {
+    font-family: Century gothic;
+    font-size: 20px;
+}
+
+.welcommsg {
+    font-family: Century gothic;
+    font-size: 30px;
+}
+
+.transparent-header {
+    background-color: transparent;
+    border: none;
+}
+
+.form-title {
+    font-size: 15px;
+    /* Default font size for larger screens */
+    white-space: nowrap;
+    /* Prevents wrapping */
+}
+
+@media (max-width: 768px) {
+    .form-title {
+        font-size: 13px;
+        /* Smaller font size for mobile view */
+    }
+}
+
+.FormStyeling {
+    width: 100% !important;
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+    border: none !important;
+    border-bottom: 1px solid black !important;
+    background-color: transparent !important;
+    border-radius: 4px !important;
+}
+.box{
+    border: 1px solid black;
+    width: 100%;
+    height: 120px;
+}
+.button-container {
+    position: sticky;
+    bottom: 0;
+    /* background: white; */
+    padding: 10px;
+    text-align: center;
+    display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.transparent-input:focus {
+    background-color: transparent; /* Maintain transparent background on focus */
+    border: 1px solid #007bff; /* Border color on focus (e.g., blue) */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional box shadow on focus */
+  }
+
+
+.homepara {
+
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: Century gothic;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .homepara {
+        padding-left: 10;
+        padding-right: 10;
+        font-size: 15px;
+        padding-top: 10px;
+    }
+}
+
+.title-container {
+    font-family: Century gothic;
+
+}
+
+.title-text {
+    white-space: nowrap;
+
+    font-size: 3rem;
+
+}
+
+@media (max-width: 768px) {
+    .title-text {
+        font-size: 1.5rem;
+        /* Adjust font size for smaller screens */
+    }
+
+    .welcommsg {
+        font-size: 1.5rem;
+    }
+
+    .para2 {
+        font-size: 15px;
+    }
+}
+
+
+
+.personal-card-heading {
+    background: linear-gradient(90deg,
+            #af0202 0%,
+            /* Red color */
+            rgba(176, 3, 3, 0.58) 66.96%,
+            rgba(255, 0, 0, 0) 100%);
+    /* Transparent red */
+    color: white;
+    /* Keep text color as white */
+
+    padding: 3px 40px 0px 14px;
+    width: 500px;
+    height: 40px;
+    letter-spacing: 5px;
+    font-size: 20px;
+    font-family: 'Century Gothic', sans-serif;
+    margin-left: 10px;
+    margin-top: -10px;
+}
+@media (min-width: 1200px) {
+    .container{
+    width: 100% !important;
+    }
+}
+
+
+
+@media print {
+    * {
+      font-size: 10pt; /* Adjust font size to fit content */
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  
+    .export-container {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .form-group {
+      margin-bottom: 5px; /* Reduce spacing between form fields */
+    }
+  
+    .page-break {
+      break-after: always;
+    }
+
+   
+        .pdf-page-break {
+          page-break-before: always;
+          page-break-after: always;
+          height: 1px;
+          visibility: hidden;
+        
+      }
+      
+  }
+
+
+  .pdf-content {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.pdf-content > *:last-child {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    height: auto !important;
+}
+
+
+
+
+
