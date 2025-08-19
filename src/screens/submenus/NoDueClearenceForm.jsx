@@ -142,7 +142,7 @@ const NoDueClearenceForm = () => {
                 </div>
                 <Container>
                     <div className="text-center title-container">
-                        <b className="title-text">NO Due Clearence Form</b>
+                        <b className="title-text">No Due Clearence Form</b>
                     </div>
                 </Container>
                 <Form>
