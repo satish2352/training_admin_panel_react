@@ -126,8 +126,8 @@ const NoDueClearenceForm = () => {
         duration = "",
         selectedModules = "",
         training_mode = "",
-        department="Training",
-        completition_date="",
+        department = "Training",
+        completition_date = "",
     } = internDetails;
 
     return (
@@ -159,7 +159,7 @@ const NoDueClearenceForm = () => {
                             <Card.Body style={{ backgroundColor: "transparent", color: "white" }} className="pt-5">
 
 
-                            <Row>
+                                <Row>
                                     {/* Name of Candidate */}
                                     <Col lg={12} md={12} sm={12} className="d-flex align-items-center flex-nowrap">
                                         <b className="label-colour me-3" style={{ width: "180px", fontSize: "18px" }}>Name of Candidate:</b>
@@ -252,8 +252,9 @@ const NoDueClearenceForm = () => {
                                             style={{ width: "50%", fontSize: "18px" }}
                                         />
                                     </Col>
-                                </Row>
 
+                                </Row>
+                                <p className="text-black mt-3 px-4" style={{fontSize:"18px", fontWeight:"400"}}>*Please obtain all the signature and forward the form to the HR Department</p>
 
 
                                 <div className="container mt-4">
