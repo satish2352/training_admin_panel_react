@@ -277,3 +277,24 @@ input[type="number"] {
   color: black;
 }
 
+@font-face {
+  font-family: 'Italianno';
+  src: url('/fonts/Italianno-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Canterbury';
+  src: url('/fonts/Canterbury.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AdobeDevanagari';
+  src: url('/fonts/AdobeDevanagari-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AdobeDevanagariBold';
+  src: url('/AdobeDevanagari-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}

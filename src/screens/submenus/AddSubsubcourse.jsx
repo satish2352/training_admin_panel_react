@@ -12,6 +12,8 @@ import corner from "../imgs/file (28).png";
 const AddSubsubcourse = () => {
   const [courses, setCourses] = useState([]);
   const [subCourses, setSubCourses] = useState([]);
+  const [course_id, setCourse_id] = useState("");
+  const [sub_course_id, setSub_course_id] = useState("");
   const [coursename, setCoursename] = useState("");
   const [subcourses_name, setSubcourses_name] = useState("");
   const [title, setTitle] = useState("");
@@ -101,11 +103,12 @@ const AddSubsubcourse = () => {
     e.preventDefault();
     const token = localStorage.getItem("remember_token");
     const formData = new FormData();
-    formData.append("coursename", coursename);
+    formData.append("course_id", course_id);
+    formData.append("sub_course_id", sub_course_id);
     formData.append("subcourses_name", subcourses_name);
     formData.append("title", title);
     formData.append("description", description);
-    formData.append("customtext", custome_text);
+    formData.append("custome_text", custome_text);
     formData.append("banner", banner);
     formData.append("back_image", back_image);
 
@@ -169,8 +172,11 @@ const AddSubsubcourse = () => {
                         <Form.Select
                           value={coursename}
                           onChange={(e) => {
+
                             const selectedCourse = courses.find((course) => course.name === e.target.value);
+                            console.log("coursename", selectedCourse);
                             setCoursename(selectedCourse?.name || "");
+                            setCourse_id(selectedCourse?.id || "")
                           }}
                         >
                           <option value="">-- Select Course --</option>
@@ -188,6 +194,7 @@ const AddSubsubcourse = () => {
                           onChange={(e) => {
                             const selectedSubcourse = subCourses.find((sub) => sub.subcourses_name === e.target.value);
                             setSubcourses_name(selectedSubcourse?.subcourses_name || "");
+                            setSub_course_id(selectedSubcourse?.subcourses_id || "");
                           }}
                         >
                           <option value="">-- Select Subcourse --</option>

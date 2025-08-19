@@ -13,7 +13,7 @@ import { ThreeDots } from 'react-loader-spinner';
 import axios from "axios";
 
 const Login = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -43,7 +43,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (validateForm()) {
       setLoading(true);
       try {
@@ -56,27 +56,29 @@ const Login = () => {
             },
           }
         );
-  
+
         if (response.data) {
           console.log("Login response:", response.data);
-  
+
           const token = response.data.access_token;
           const id = response.data.user.id;
           const userEmail = response.data.user.email; // Extract user email
-  
+
           // Store token and user details in localStorage
           localStorage.setItem("remember_token", token);
           localStorage.setItem("access_token", token);
           localStorage.setItem("id", id);
           localStorage.setItem("user_email", userEmail);
-  
+
           toast.success("Login Successfully!!");
-  
+
           // Check for specific email condition
           if (userEmail === "bde@sumagoinfotech.com") {
-            navigate("/ViewPopupEnquiry"); // Redirect to admin page
+            navigate("/ViewPopupEnquiry", { state: { userEmail: "bde@sumagoinfotech.com" } }); // Redirect to admin page
+          } else if (userEmail === "scopeadmin@sumagoinfotech.com") {
+            navigate("/trainingdashboard", { state: { userEmail: "scopeadmin@sumagoinfotech.com" } });
           } else {
-            navigate("/viewinterjoining"); // Redirect to default user page
+            navigate("/viewinterjoining", { state: { userEmail: "adminuser@sumagoinfotech.com" } }); // Redirect to default user page
           }
         } else {
           const errorMessage = response.data.message || "Login failed";
@@ -103,7 +105,7 @@ const Login = () => {
       }
     }
   };
-  
+
 
   return (
     <Container className="d-flex flex-column align-items-center justify-content-center min-vh-100 bg-light">

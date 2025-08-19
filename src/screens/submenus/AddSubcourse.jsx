@@ -47,12 +47,13 @@ const Addsubcourse = () => {
 
 
     useEffect(() => {
-        const courseIdFromLocation = location.state?.course_id;
-        if (courseIdFromLocation) {
-            setCourseId(courseIdFromLocation);
-        }
+        // const courseIdFromLocation = location.state?.course_id;
+        // if (courseIdFromLocation) {
+        //     setCourseId(courseIdFromLocation);
+        // }
         fetchCourses();
     }, []);
+
 
     const BASE_URL = "https://api.sumagotraining.in/public/api";
 
@@ -79,7 +80,7 @@ const Addsubcourse = () => {
             toast.error("User not authenticated. Please log in again.");
             return;
         }
-
+        
         const formData = new FormData();
         formData.append("course_id", course_id);
         formData.append("name", coursename);
@@ -255,6 +256,7 @@ const Addsubcourse = () => {
                                                         const selectedCourse = courses.find(course => course.name === e.target.value);
                                                         if (selectedCourse) {
                                                             setCoursename(selectedCourse.name);
+                                                            setCourseId(selectedCourse.id);
                                                         }
                                                     }}
                                                 >

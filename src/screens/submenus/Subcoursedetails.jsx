@@ -152,7 +152,7 @@ const Subcoursedetails = () => {
 
 
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (subcourses_id) => {
     confirmAlert({
       title: "Confirm to delete",
       message: "Are you sure you want to delete this data?",
@@ -178,7 +178,7 @@ const Subcoursedetails = () => {
                 setLoading(true);
                 const accessToken = localStorage.getItem("remember_token");
                 try {
-                  await instance.delete(`delete_subcourse/${id}`, {
+                  await instance.delete(`delete_subcourse/${subcourses_id}`, {
                     headers: {
                       Authorization: `Bearer ${accessToken}`,
                       "Content-Type": "application/json",
@@ -187,7 +187,7 @@ const Subcoursedetails = () => {
                   toast.success("Data Deleted Successfully");
 
                   // Update state directly after deletion
-                  setSubcourses((prevCourses) => prevCourses.filter(course => course.id !== id));
+                  setSubcourses((prevCourses) => prevCourses.filter(course => course.subcourses_id !== subcourses_id));
 
                 } catch (error) {
                   console.error("Error deleting data:", error);
@@ -326,7 +326,7 @@ const Subcoursedetails = () => {
           </OverlayTrigger>
           <OverlayTrigger placement="top" overlay={<Tooltip id="delete-tooltip">Delete</Tooltip>}>
             <Button className="ms-1" style={{ backgroundColor: "red", color: "white", borderColor: "red" }}
-              onClick={() => handleDelete(row.id)}
+              onClick={() => handleDelete(row.subcourses_id)}
             >
               <FaTrash />
             </Button>

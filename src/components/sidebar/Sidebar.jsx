@@ -8,9 +8,9 @@ import {
   MdHome,
   MdOutlineArticle,
   MdOutlineDashboard,
-  MdContactPage ,
-  MdInfo ,
-  MdEvent ,
+  MdContactPage,
+  MdInfo,
+  MdEvent,
   MdLibraryBooks,
   MdLogout,
   MdPassword,
@@ -29,7 +29,7 @@ import { SidebarContext } from "../../context/SidebarContext";
 import { TitleContext } from "../../context/TitleContext";
 import { IoIosOptions, IoIosPeople } from "react-icons/io";
 // Sidebar menu structure
-const SidebarMenu = [
+const ScopeAdminSidebar = [
   {
     menu: "Home",
     url: "/dashboard",
@@ -78,6 +78,26 @@ const SidebarMenu = [
         url: "/ViewT3Sheet",
         icon: <AiOutlineProject style={{ color: "red" }} size={24} />,
       },
+      {
+        subMenus: "No Due Clearance",
+        url: "/no-due-clearance",
+        icon: <AiOutlineProject style={{ color: "red" }} size={24} />,
+      },
+      {
+        subMenus: "Implant Registration",
+        url: "/implant-registration",
+        icon: <AiOutlineProject style={{ color: "red" }} size={24} />,
+      },
+      {
+        subMenus: "Training Duration",
+        url: "/training-duration-list",
+        icon: <AiOutlineProject style={{ color: "red" }} size={24} />,
+      },
+      {
+        subMenus: "Website Enquiry",
+        url: "/enquirydetails",
+        icon: <AiOutlineProject style={{ color: "red" }} size={24} />,
+      },
 
 
     ],
@@ -101,9 +121,31 @@ const SidebarMenu = [
   // },
 ];
 
-
-// BDE Sidebar menu structure
 const BDESidebar = [
+  {
+    menu: "Popup Enquiry",
+    url: "/ViewPopupEnquiry",
+    mainIcon: <MdOutlineArticle size={24} />,
+    subMenu: [],
+  },
+
+  {
+    menu: "Implant Training List",
+    url: "/ViewImplanttraining",
+    mainIcon: <MdOutlineArticle size={24} />,
+    subMenu: [],
+  },
+
+  {
+    menu: "Logout",
+    url: "/logout",
+    mainIcon: <MdLogout size={24} />,
+    subMenu: [],
+  },
+
+]
+// BDE Sidebar menu structure
+const AdminPanelSidebar = [
 
   {
     menu: "Dashboard",
@@ -149,32 +191,27 @@ const BDESidebar = [
   {
     menu: "Contact",
     // url: "/",
-    mainIcon: <MdContactPage  size={24} />,
+    mainIcon: <MdContactPage size={24} />,
     subMenu: [
-      {
-        subMenus: "Website Enquiry",
-        url: "/enquirydetails",
-        icon: <AiOutlineProject style={{ color: "red" }} size={24} />,
-      },
       {
         subMenus: "Our Offices",
         url: "/officesdetails",
         icon: <AiOutlineProject style={{ color: "red" }} size={24} />,
       },
-     
+
     ],
   },
   {
     menu: "About",
     // url: "/",
-    mainIcon: <MdInfo  size={24} />,
+    mainIcon: <MdInfo size={24} />,
     subMenu: [
       {
         subMenus: "Google Reviews",
         url: "/googlereviewdetails",
         icon: <AiOutlineProject style={{ color: "red" }} size={24} />,
       },
-      
+
 
 
     ],
@@ -267,12 +304,12 @@ const BDESidebar = [
         url: "/toprankdetails",
         icon: <AiOutlineProject style={{ color: "red" }} size={24} />,
       },
-],
+    ],
   },
   {
     menu: "Event",
     // url: "/",
-    mainIcon: <MdEvent  size={24} />,
+    mainIcon: <MdEvent size={24} />,
     subMenu: [
       {
         subMenus: "Fun at Work Category",
@@ -315,42 +352,20 @@ const BDESidebar = [
         url: "/newsletterdetails",
         icon: <AiOutlineProject style={{ color: "red" }} size={24} />,
       },
-
-
     ],
   },
   {
-    menu: "Popup Enquiry",
-    url: "/ViewPopupEnquiry",
-    mainIcon: <MdOutlineArticle size={24} />,
+    menu: "Blogs",
+    url: "/blogs",
+    mainIcon: <AiOutlineProject size={24} />,
     subMenu: [],
   },
-
-  {
-    menu: "Implant Training List",
-    url: "/ViewImplanttraining",
-    mainIcon: <MdOutlineArticle size={24} />,
-    subMenu: [],
-  },
-
   {
     menu: "Logout",
     url: "/logout",
     mainIcon: <MdLogout size={24} />,
     subMenu: [],
   },
-
-
-
-
-
-
-  // {
-  //   menu: "Forgot Password",
-  //   url: "/forgotpassword",
-  //   mainIcon: <MdPassword size={24} />,
-  //   subMenu: [],
-  // },
 ];
 
 
@@ -367,7 +382,7 @@ const Sidebar = () => {
   const userEmail = localStorage.getItem("user_email");
 
   // Determine which sidebar menu to show
-  const menuToRender = userEmail === "bde@sumagoinfotech.com" ? BDESidebar : SidebarMenu;
+  const menuToRender = userEmail === "bde@sumagoinfotech.com" ? BDESidebar : "scopeadmin@sumagoinfotech.com" ? AdminPanelSidebar : ScopeAdminSidebar;
 
   // Close sidebar on clicking outside
   const handleClickOutside = (event) => {
@@ -423,44 +438,123 @@ const Sidebar = () => {
         <div className="sidebar-menu">
           <MenuBar>
             <Menu>
-              {menuToRender.map((item, id) => (
-                <div key={id}>
-                  {item.subMenu.length > 0 ? (
-                    <SubMenu
-                      className={`menu-link-text bg-white ${activeMenu === item.menu ? "active" : ""}`}
-                      icon={item.mainIcon}
-                      label={item.menu}
-                      open={activeMenu === item.menu}
-                      onClick={() => handleMenuClick(item.menu)}
-                    >
-                      {item.subMenu.map((subItem, subId) => (
-                        <MenuItem
-                          key={subId}
-                          component={<Link to={subItem.url} />}
-                          icon={subItem.icon}
-                          className={`menu-link-text bg-white ${activeSubMenu === subItem.subMenus ? "active" : ""
-                            }`}
-                          onClick={() => handleSubMenuClick(subItem.subMenus)}
-                        >
-                          {subItem.subMenus}
-                        </MenuItem>
-                      ))}
-                    </SubMenu>
-                  ) : (
-                    <MenuItem
-                      icon={item.mainIcon}
-                      className={`menu-link-text bg-white ${activeMenu === item.menu ? "active" : ""}`}
-                      onClick={() => {
-                        handleMenuClick(item.menu);
-                        closeSidebar();
-                      }}
-                      component={<Link to={item.url} />}
-                    >
-                      {item.menu}
-                    </MenuItem>
-                  )}
-                </div>
-              ))}
+              {userEmail === "bde@sumagoinfotech.com" &&
+                BDESidebar.map((item, id) => (
+                  <div key={id}>
+                    {item.subMenu.length > 0 ? (
+                      <SubMenu
+                        className={`menu-link-text bg-white ${activeMenu === item.menu ? "active" : ""}`}
+                        icon={item.mainIcon}
+                        label={item.menu}
+                        open={activeMenu === item.menu}
+                        onClick={() => handleMenuClick(item.menu)}
+                      >
+                        {item.subMenu.map((subItem, subId) => (
+                          <MenuItem
+                            key={subId}
+                            component={<Link to={subItem.url} />}
+                            icon={subItem.icon}
+                            className={`menu-link-text bg-white ${activeSubMenu === subItem.subMenus ? "active" : ""
+                              }`}
+                            onClick={() => handleSubMenuClick(subItem.subMenus)}
+                          >
+                            {subItem.subMenus}
+                          </MenuItem>
+                        ))}
+                      </SubMenu>
+                    ) : (
+                      <MenuItem
+                        icon={item.mainIcon}
+                        className={`menu-link-text bg-white ${activeMenu === item.menu ? "active" : ""}`}
+                        onClick={() => {
+                          handleMenuClick(item.menu);
+                          closeSidebar();
+                        }}
+                        component={<Link to={item.url} />}
+                      >
+                        {item.menu}
+                      </MenuItem>
+                    )}
+                  </div>
+                ))}
+              {userEmail === "scopeadmin@sumagoinfotech.com" &&
+                AdminPanelSidebar.map((item, id) => (
+                  <div key={id}>
+                    {item.subMenu.length > 0 ? (
+                      <SubMenu
+                        className={`menu-link-text bg-white ${activeMenu === item.menu ? "active" : ""}`}
+                        icon={item.mainIcon}
+                        label={item.menu}
+                        open={activeMenu === item.menu}
+                        onClick={() => handleMenuClick(item.menu)}
+                      >
+                        {item.subMenu.map((subItem, subId) => (
+                          <MenuItem
+                            key={subId}
+                            component={<Link to={subItem.url} />}
+                            icon={subItem.icon}
+                            className={`menu-link-text bg-white ${activeSubMenu === subItem.subMenus ? "active" : ""
+                              }`}
+                            onClick={() => handleSubMenuClick(subItem.subMenus)}
+                          >
+                            {subItem.subMenus}
+                          </MenuItem>
+                        ))}
+                      </SubMenu>
+                    ) : (
+                      <MenuItem
+                        icon={item.mainIcon}
+                        className={`menu-link-text bg-white ${activeMenu === item.menu ? "active" : ""}`}
+                        onClick={() => {
+                          handleMenuClick(item.menu);
+                          closeSidebar();
+                        }}
+                        component={<Link to={item.url} />}
+                      >
+                        {item.menu}
+                      </MenuItem>
+                    )}
+                  </div>
+                ))}
+              {userEmail === "adminuser@sumagoinfotech.com" &&
+                ScopeAdminSidebar.map((item, id) => (
+                  <div key={id}>
+                    {item.subMenu.length > 0 ? (
+                      <SubMenu
+                        className={`menu-link-text bg-white ${activeMenu === item.menu ? "active" : ""}`}
+                        icon={item.mainIcon}
+                        label={item.menu}
+                        open={activeMenu === item.menu}
+                        onClick={() => handleMenuClick(item.menu)}
+                      >
+                        {item.subMenu.map((subItem, subId) => (
+                          <MenuItem
+                            key={subId}
+                            component={<Link to={subItem.url} />}
+                            icon={subItem.icon}
+                            className={`menu-link-text bg-white ${activeSubMenu === subItem.subMenus ? "active" : ""
+                              }`}
+                            onClick={() => handleSubMenuClick(subItem.subMenus)}
+                          >
+                            {subItem.subMenus}
+                          </MenuItem>
+                        ))}
+                      </SubMenu>
+                    ) : (
+                      <MenuItem
+                        icon={item.mainIcon}
+                        className={`menu-link-text bg-white ${activeMenu === item.menu ? "active" : ""}`}
+                        onClick={() => {
+                          handleMenuClick(item.menu);
+                          closeSidebar();
+                        }}
+                        component={<Link to={item.url} />}
+                      >
+                        {item.menu}
+                      </MenuItem>
+                    )}
+                  </div>
+                ))}
             </Menu>
           </MenuBar>
         </div>

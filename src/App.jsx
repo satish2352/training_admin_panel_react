@@ -135,6 +135,15 @@ import UpdateNewsdetails from "./screens/submenus/UpdateNewsdetails.jsx";
 import NewsLetterdetails from "./screens/submenus/NewsLetterdetails.jsx";
 import AddNewsLetterdetails from "./screens/submenus/AddNewsLetterdetails.jsx";
 import UpdateNewsLetterdetails from "./screens/submenus/UpdateNewsLetterdetails.jsx";
+import ImplantRegistration from "./screens/submenus/ImplantRegistration.jsx";
+import ImplantRegistrationForm from "./screens/submenus/ImplantRegistrationForm.jsx";
+import TrainingDuration from "./screens/submenus/TrainingDuration.jsx";
+import TrainingDurationList from "./screens/submenus/TrainingDurationList.jsx";
+import Blogs from "./screens/submenus/blogs.jsx";
+import AddBlog from "./screens/submenus/AddBlog.jsx";
+import UpdateBlog from "./screens/submenus/UpdateBlog.jsx";
+import NoDueClearenceForm from "./screens/submenus/NoDueClearenceForm.jsx";
+import NoClearanceDueList from "./screens/submenus/NoClearanceDueList.jsx";
 
 
 
@@ -158,6 +167,18 @@ function App() {
           <Route
             path="/PersonalDetailsPage"
             element={<ProtectedRoutes Component={PersonalDetailsPage} />}
+          />
+          <Route
+            path="/registration"
+            element={<ProtectedRoutes Component={ImplantRegistrationForm} />}
+          />
+          <Route
+            path="/training-duration"
+            element={<ProtectedRoutes Component={TrainingDuration} />}
+          />
+          <Route
+            path="/training-duration-list"
+            element={<ProtectedRoutes Component={TrainingDurationList} />}
           />
           <Route
             path="/update-intern-personal-details/:id"
@@ -192,6 +213,10 @@ function App() {
           <Route
             path="/intern-all-details/:id"
             element={<ProtectedRoutes Component={InternAllDetails} />}
+          />
+          <Route
+            path="/implant-registration"
+            element={<ProtectedRoutes Component={ImplantRegistration} />}
           />
 
 
@@ -269,6 +294,19 @@ function App() {
           />
           <Route
             path="/T3SheetAllDetails/:id"
+            element={<ProtectedRoutes Component={T3SheetAllDetails} />}
+          />
+
+          <Route
+            path="/no-due-clearance"
+            element={<ProtectedRoutes Component={NoClearanceDueList} />}
+          />
+          <Route
+            path="/no-due-clearance/:id"
+            element={<ProtectedRoutes Component={NoDueClearenceForm} />}
+          />
+          <Route
+            path="/no-due-clearance-All/:id"
             element={<ProtectedRoutes Component={T3SheetAllDetails} />}
           />
 
@@ -715,6 +753,18 @@ function App() {
           />
 
 
+          <Route
+            path="/blogs"
+            element={<ProtectedRoutes Component={Blogs} />}
+          />
+          <Route
+            path="/addblogs"
+            element={<ProtectedRoutes Component={AddBlog} />}
+          />
+          <Route
+            path="/update-blog-details/:title"
+            element={<ProtectedRoutes Component={UpdateBlog} />}
+          />
 
 
 
