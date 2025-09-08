@@ -10,7 +10,6 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
    
-    console.log('Name:', name, 'Email:', email, 'Password:', password);
     
   };
 

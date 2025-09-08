@@ -91,7 +91,6 @@ const UpdateSubcourse = () => {
     
             const textResponse = await response.text(); // Read response as text first
     
-            console.log("Raw API Response:", textResponse);
     
             try {
                 const jsonResponse = JSON.parse(textResponse); // Try converting to JSON

@@ -48,7 +48,6 @@ const TopRankdetails = () => {
             const BASE_URL = "https://api.sumagotraining.in/public/api";
             const response = await axios.get(`${BASE_URL}/get_topranked`);
 
-            console.log("API Response:", response.data); // Debugging log
             const sortedData = response.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
             settoprankData(sortedData); // Set sorted data
             setData(sortedData); // Update the SearchExportContext data

@@ -58,7 +58,6 @@ const Login = () => {
         );
 
         if (response.data) {
-          console.log("Login response:", response.data);
 
           const token = response.data.access_token;
           const id = response.data.user.id;

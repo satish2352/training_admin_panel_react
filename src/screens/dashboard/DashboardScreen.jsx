@@ -45,9 +45,7 @@ const Dashboard = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
-      console.log("Intern Data:", internResponse.data);
-      console.log("Completion Data:", completionResponse.data);
-
+     
       setInternData(internResponse.data);
       setCompletionData(completionResponse.data);
     } catch (error) {

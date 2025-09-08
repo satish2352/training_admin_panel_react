@@ -174,7 +174,6 @@ const AddSubsubcourse = () => {
                           onChange={(e) => {
 
                             const selectedCourse = courses.find((course) => course.name === e.target.value);
-                            console.log("coursename", selectedCourse);
                             setCoursename(selectedCourse?.name || "");
                             setCourse_id(selectedCourse?.id || "")
                           }}

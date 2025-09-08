@@ -47,7 +47,6 @@ const Coursefeesdetails = () => {
     const [course_id, setCourseId] = useState(location.state?.course_id || "");
 
     useEffect(() => {
-        console.log("Selected Course Name:", coursename);
     }, [coursename]);
 
     useEffect(() => {

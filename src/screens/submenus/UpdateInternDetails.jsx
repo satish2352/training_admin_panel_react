@@ -1216,8 +1216,7 @@ function UpdateInternDetails() {
             buttom_place,
         };
     
-        console.log("ID for update:", id);
-        console.log("Data to update:", newData);
+     
     
         try {
             const response = await axios.post(
@@ -1232,7 +1231,6 @@ function UpdateInternDetails() {
             );
             toast.success("Data updated successfully!");
             navigate("/viewjoining")
-            console.log("Update Response:", response.data);
         } catch (error) {
             console.error("Error updating data:", error.response?.data || error.message);
             alert(`Failed to update data. Error: ${error.response?.data?.message || error.message}`);

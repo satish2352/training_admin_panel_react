@@ -66,7 +66,6 @@ const Syllabuspdfdetails = () => {
         }
       });
 
-      console.log("API Response:", response.data); // Debugging log
 
 
       const sortedData = response.data.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));

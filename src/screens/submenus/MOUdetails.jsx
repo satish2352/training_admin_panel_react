@@ -70,7 +70,6 @@ const MOUdetails = () => {
       const sortedData = response.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
       setmoudetailsData(sortedData); // Set sorted data
       setData(sortedData); // Update the SearchExportContext data
-      console.log("API Response:", response.data); // Debugging log
 
       if (response.data?.status === "Success") {
         setmoudetailsData(response.data);

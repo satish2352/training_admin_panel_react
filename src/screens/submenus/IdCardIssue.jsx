@@ -98,7 +98,6 @@ function IdCardIssue() {
     blood_group: "",
     shirt_size: "",
   });
-  console.log("id", id);
 
 
   const [errors, setErrors] = useState({});
@@ -115,7 +114,6 @@ function IdCardIssue() {
           { headers: { Authorization: `Bearer ${token}` } }
         );
         const data = response.data;
-        // console.log(data[0].fname);
 
         if (!data) {
           toast.error("Add Intern Details First", {
@@ -253,7 +251,6 @@ function IdCardIssue() {
           toast.error("Submission failed. Please try again.");
         }
 
-        console.log("API Response:", response.data);
       } catch (error) {
         console.error("API Error:", error);
         alert("An error occurred while submitting the form");

@@ -155,8 +155,7 @@ function UpdateIdCardDetails() {
             blood,
             shirt_size,
         };
-        console.log("ID for update:", id);
-        console.log("Data to update:", newData);
+
 
         try {
             const response = await axios.post(
@@ -171,7 +170,6 @@ function UpdateIdCardDetails() {
             );
             toast.success("Data updated successfully!");
             navigate("/ViewIdCard")
-            console.log("Update Response:", response.data);
         } catch (error) {
             console.error("Error updating data:", error.response?.data || error.message);
             toast.error(`Failed to update data. Error: ${error.response?.data?.message || error.message}`);

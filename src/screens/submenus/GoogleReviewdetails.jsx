@@ -49,7 +49,6 @@ const Googlereviewdetails = () => {
       const BASE_URL = "https://api.sumagotraining.in/public/api";
       const response = await axios.get(`${BASE_URL}/get_googleReview`);
 
-      console.log("API Response:", response.data); // Debugging log
 
       const sortedData = response.data.sort((a, b) => b.id - a.id);
       setreviewdata(sortedData); // Set sorted data

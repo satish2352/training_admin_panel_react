@@ -49,7 +49,6 @@ function TrainingDuration() {
 
   useEffect(() => {
     if (location?.state?.duration) {
-      console.log("location?.state?", location?.state.id);
       const [fromStr, toStr] = location.state.duration.split(" to ");
 
       const fromDates = new Date(fromStr.split("/").reverse().join("-")).toString();
@@ -64,7 +63,6 @@ function TrainingDuration() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-    console.log("fromDatefromDatefromDate", fromDate);
     const from_date = fromDate.toLocaleDateString("en-GB")
     const to_date = toDate.toLocaleDateString("en-GB")
     const duration = `${from_date} to ${to_date}`
@@ -91,7 +89,6 @@ function TrainingDuration() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-    console.log("fromDate", fromDate);
     const from_date = new Date(fromDate).toLocaleDateString("en-GB");
     const to_date = new Date(toDate).toLocaleDateString("en-GB");
     const duration = `${from_date} to ${to_date}`

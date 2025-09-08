@@ -108,7 +108,6 @@ function InterJoining() {
 
   useEffect(() => {
     if (location) {
-      console.log("location?.state", location?.state);
 
       setfname(location?.state?.fname || "");
       setmname(location?.state?.mname || "");
@@ -1250,7 +1249,6 @@ function InterJoining() {
       );
 
       const responseData = await response.json();
-      console.log("Response Data:", responseData);
 
       if (response.ok) {
         toast.success("Data submitted successfully!");

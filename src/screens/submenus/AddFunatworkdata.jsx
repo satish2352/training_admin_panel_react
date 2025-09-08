@@ -70,7 +70,6 @@ const AddFunatworkData = () => {
 
             // Ensure response.data.data is an array
             const funatworkData = Array.isArray(response.data?.data) ? response.data.data : [];
-            console.log(funatworkData)
             setFunatworkCategory(funatworkData);
         } catch (err) {
             console.error("Error fetching recognititon category:", err);

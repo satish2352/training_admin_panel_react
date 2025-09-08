@@ -88,7 +88,6 @@ const UpdateMOUdetails = () => {
 
             // Ensure response.data.data is an array
             const moucategoryData = Array.isArray(response.data?.data) ? response.data.data : [];
-            console.log(moucategoryData)
             setMOUcategory(moucategoryData); // Store fetched subcourses
         } catch (err) {
             console.error("Error fetching recongnition details:", err);

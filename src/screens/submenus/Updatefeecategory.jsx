@@ -43,10 +43,10 @@ const Updatefeecategory = () => {
           body: formData,
         }
       );
-      console.log("Updating Course ID:", courseData.id);
+   
 
       const textResponse = await response.text();
-      console.log("Raw API Response:", textResponse); // Debugging
+   
 
       if (response.ok) {
         toast.success("Program fee category updated successfully!");

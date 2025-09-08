@@ -63,7 +63,6 @@ const Hiredetails = () => {
             const BASE_URL = "https://api.sumagotraining.in/public/api";
             const response = await axios.get(`${BASE_URL}/get_hired`);
 
-            console.log("API Response:", response.data); // Debugging log
 
             const sortedData = response.data.sort((a, b) => b.id - a.id);
             setHireData(sortedData); // Set sorted data

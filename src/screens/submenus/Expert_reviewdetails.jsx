@@ -74,7 +74,6 @@ const Expertreviewdetails = () => {
             const BASE_URL = "https://api.sumagotraining.in/public/api";
             const response = await axios.get(`${BASE_URL}/get_expertReview`);
 
-            console.log("API Response:", response.data);
 
             const sortedData = response.data.sort((a, b) => b.id - a.id);
             setExpertreview(sortedData); // Set sorted data

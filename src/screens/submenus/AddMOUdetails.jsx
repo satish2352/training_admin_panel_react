@@ -66,7 +66,6 @@ const AddMOUdetails = () => {
 
             // Ensure response.data.data is an array
             const moucategorydata = Array.isArray(response.data?.data) ? response.data.data : [];
-            console.log(moucategorydata)
             setMOUcategory(moucategorydata);
         } catch (err) {
             console.error("Error fetching mou category:", err);

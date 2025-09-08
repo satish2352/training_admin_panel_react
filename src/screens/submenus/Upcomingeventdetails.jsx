@@ -56,7 +56,6 @@ const Upcomingeventsdetails = () => {
             const BASE_URL = "https://api.sumagotraining.in/public/api";
             const response = await axios.get(`${BASE_URL}/get_event_upcoming`);
 
-            console.log("API Response:", response.data);
 
             if (Array.isArray(response.data)) {
                 setEventData(response.data);

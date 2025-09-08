@@ -34,7 +34,6 @@ function UpdatePersonalDetails() {
 
   useEffect(() => {
     if (location) {
-      console.log("location?.state", location?.state); // Logs the state passed in the location object for debugging
       setid(location?.state?.id || "");
       // Set state variables with values from location.state or default to an empty string
       setfname(location?.state?.fname || "");

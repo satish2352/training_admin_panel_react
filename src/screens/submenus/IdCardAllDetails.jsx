@@ -134,7 +134,6 @@ const IdCardAllDetails = () => {
           }
         );
 
-        console.log("API Response:", response.data); // Debug log
         setInternDetails(response.data); // Ensure fields are at the root level
       } catch (err) {
         setError("Add Id card details first.");

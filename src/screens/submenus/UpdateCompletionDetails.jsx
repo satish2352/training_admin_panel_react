@@ -393,7 +393,6 @@ function UpdateCompletionDetails() {
         if (!filteredFormData.resume_pdf) delete filteredFormData.resume_pdf;
         if (!filteredFormData.feedback_video) delete filteredFormData.feedback_video;
 
-        console.log("Payload before API request:", filteredFormData);
 
         setIsSubmitting(true);
         try {
@@ -403,7 +402,7 @@ function UpdateCompletionDetails() {
                 filteredFormData,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
-            console.log("API Response after submit:", response.data);
+
             toast.success("Data updated successfully!");
             navigate('/viewcompletion');
         } catch (err) {

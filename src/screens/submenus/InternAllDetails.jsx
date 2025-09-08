@@ -144,7 +144,6 @@ const InternAllDetails = () => {
           },
         });
 
-        console.log("API Response:", response.data); // Log the response
 
         const data = response.data[0]; // Assuming the response is an array
         if (!data) {

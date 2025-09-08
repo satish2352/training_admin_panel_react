@@ -68,7 +68,6 @@ const AddRecognitiondetails = () => {
 
             // Ensure response.data.data is an array
             const recognitioncategorydata = Array.isArray(response.data?.data) ? response.data.data : [];
-            console.log(recognitioncategorydata)
             setRecognitionCategory(recognitioncategorydata);
         } catch (err) {
             console.error("Error fetching recognition category:", err);

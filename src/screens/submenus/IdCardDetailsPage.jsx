@@ -125,7 +125,6 @@ const IdCardDetailsPage = () => {
   useEffect(() => {
     const fetchInternDetails = async () => {
       const accessToken = localStorage.getItem("remember_token");
-      console.log("Fetching ID:", id);
 
       try {
         const response = await axios.get(
@@ -138,7 +137,6 @@ const IdCardDetailsPage = () => {
           }
         );
 
-        console.log("API Response:", response.data); // Debug log
         setInternDetails(response.data); // Ensure fields are at the root level
       } catch (err) {
         setError("Failed to fetch intern details. Please try again later.");

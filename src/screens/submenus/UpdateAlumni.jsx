@@ -85,7 +85,6 @@ const UpdateAlumni = () => {
 
 
 
-    console.log("Location State:", location.state);
 
     const fetchSubCourses = async () => {
         const accessToken = localStorage.getItem("remember_token");

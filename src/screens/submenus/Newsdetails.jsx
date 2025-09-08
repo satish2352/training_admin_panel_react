@@ -72,7 +72,6 @@ const Newsdetails = () => {
       const sortedData = response.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
       setnewsData(sortedData); // Set sorted data
       setData(sortedData); // Update the SearchExportContext data
-      console.log("API Response:", response.data); // Debugging log
 
       if (response.data?.status === "Success") {
         setnewsData(response.data.data);

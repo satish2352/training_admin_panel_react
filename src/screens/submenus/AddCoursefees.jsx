@@ -39,7 +39,6 @@ const Addcoursefees = () => {
     const [course_id, setCourseId] = useState(location.state?.course_id || "");
 
     useEffect(() => {
-        console.log("Selected Course Name:", coursename);
     }, [coursename]);
 
     const BASE_URL = "https://api.sumagotraining.in/public/api";
@@ -64,7 +63,6 @@ const Addcoursefees = () => {
                     "Content-Type": "application/json",
                 },
             });
-            console.log("Courses API Response:", response.data); // Debugging log
             setCourses(response.data?.data || []);
         } catch (error) {
             console.error("Error fetching courses:", error);
@@ -80,7 +78,6 @@ const Addcoursefees = () => {
                     "Content-Type": "application/json",
                 },
             });
-            console.log("Subcourses API Response:", response.data); // Debugging log
             setSubcourses(response.data?.data || []);
         } catch (err) {
             console.error("Error fetching subcourses:", err);
@@ -96,7 +93,6 @@ const Addcoursefees = () => {
                     "Content-Type": "application/json",
                 },
             });
-            console.log("Fee Categories API Response:", response.data); // Debugging log
             setFeeCategories(response.data?.data || []);
         } catch (err) {
             console.error("Error fetching program fee categories:", err);

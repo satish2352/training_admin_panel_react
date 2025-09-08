@@ -188,7 +188,6 @@ function ImplantRegistrationForm() {
           },
         }
       );
-      console.log("response.data.dataresponse.data.data", response.data.data);
       setTrainingDuration(response.data.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -450,7 +449,6 @@ function ImplantRegistrationForm() {
       });
       toast.success("Data submitted successfully!");
       navigate("/implant-registration");
-      console.log("response", response);
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error("An error occurred. Please try again.");
@@ -490,7 +488,6 @@ function ImplantRegistrationForm() {
       });
       toast.success("Data updated successfully!");
       navigate("/implant-registration");
-      console.log("response", response);
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error("An error occurred. Please try again.");

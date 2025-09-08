@@ -39,7 +39,6 @@ const TrainingDashboard = () => {
         }
       );
 
-      console.log("Dashboard Count Data:", response.data);
       setDashboardData(response.data || {});
     } catch (error) {
       console.error("Error fetching dashboard data:", error);

@@ -188,7 +188,7 @@ function CompletionFrom() {
         
         const token = localStorage.getItem("remember_token");
         const id = localStorage.getItem("id");
-        console.log(id, "new iddddd");
+        
         
         if (validateForm()) {
             const submittedData = {
@@ -264,7 +264,6 @@ function CompletionFrom() {
                 formData.append('image', image);
                 formData.append('video', video);
     
-                console.log(formData, "formDataformDataformDataformData");
                 
                 // Send data to API using axios
                 axios.post('https://api.sumagotraining.in/public/api/intern-completion/add', formData, {
@@ -285,7 +284,6 @@ function CompletionFrom() {
                 });
             }
     
-            console.log('Submitted Data:', submittedData);
         }
     };
     

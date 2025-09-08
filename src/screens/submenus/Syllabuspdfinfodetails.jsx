@@ -70,7 +70,6 @@ const Syllabuspdfinfodetails = () => {
       const sortedData = response.data.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
       setsyllabuspdfinfoData(sortedData); // Set sorted data
       setData(sortedData); // Update the SearchExportContext data
-      console.log("API Response:", response.data); // Debugging log
 
       if (response.data?.status === "Success") {
         setsyllabuspdfinfoData(response.data.data);

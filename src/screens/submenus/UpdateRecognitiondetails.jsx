@@ -90,7 +90,6 @@ const UpdateRecognitiondetails = () => {
 
             // Ensure response.data.data is an array
             const recognitioncategoryData = Array.isArray(response.data?.data) ? response.data.data : [];
-            console.log(recognitioncategoryData)
             setRecognitionCategory(recognitioncategoryData); // Store fetched subcourses
         } catch (err) {
             console.error("Error fetching recongnition details:", err);

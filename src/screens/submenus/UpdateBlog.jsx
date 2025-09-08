@@ -14,7 +14,6 @@ const UpdateBlog = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const blogs = location.state || {};
-    console.log("blogs................", blogs);
     const [blog_id, setBlog_id] = useState(blogs.id || "");
     const [title, setTitle] = useState(blogs.title || "");
     const [description, setDescription] = useState(blogs.description || "");

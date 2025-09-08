@@ -32,17 +32,17 @@ const ViewIdCard = () => {
   useEffect(() => {
     fetchProducts();
   }, [currentPage]); // Fetch data when page changes
-  
+
   useEffect(() => {
     handleSearch(""); // Reset search when page changes
   }, [currentPage]);
-  
+
 
   const [forceUpdate, setForceUpdate] = useState(0);
 
-useEffect(() => {
-  setForceUpdate((prev) => prev + 1);
-}, [products, filteredData]);
+  useEffect(() => {
+    setForceUpdate((prev) => prev + 1);
+  }, [products, filteredData]);
 
   const fetchProducts = async () => {
     setLoading(true);
@@ -55,12 +55,11 @@ useEffect(() => {
           "Content-Type": "application/json",
         },
       });
-      console.log("Fetched Data:", response.data); // Log the response for debugging
- // Sorting the data in descending order based on created_at
- const sortedData = response.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      // Sorting the data in descending order based on created_at
+      const sortedData = response.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
- setProducts(sortedData);
- setData(sortedData);
+      setProducts(sortedData);
+      setData(sortedData);
     } catch (error) {
       console.error("Error fetching products:", error);
     } finally {
@@ -127,7 +126,7 @@ useEffect(() => {
       ),
     });
   };
- 
+
 
   // const handlePrint = (id) => {
   //   const printUrl = `get-intern-id-card-details/${id}`;
@@ -138,28 +137,28 @@ useEffect(() => {
   //   };
   // };
 
-   const formatDate = (dateString) => {
-      const date = new Date(dateString);
-      return date.toLocaleDateString('en-GB'); // Formats as dd/mm/yyyy
-    };
-  
-  
-    const exportExcel = () => {
-      // Format date fields before exporting
-      const formattedProducts = products.map((product) => ({
-        ...product,
-        date_of_joining: formatDate(product.date_of_joining),
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-GB'); // Formats as dd/mm/yyyy
+  };
 
-        created_at: formatDate(product.created_at),
-        updated_at: formatDate(product.updated_at),
-      }));
-  
-      const worksheet = XLSX.utils.json_to_sheet(formattedProducts);
-      const workbook = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(workbook, worksheet, "Id Card Details");
-      XLSX.writeFile(workbook, "View-Id-Card-Details.xlsx");
-    };
-  
+
+  const exportExcel = () => {
+    // Format date fields before exporting
+    const formattedProducts = products.map((product) => ({
+      ...product,
+      date_of_joining: formatDate(product.date_of_joining),
+
+      created_at: formatDate(product.created_at),
+      updated_at: formatDate(product.updated_at),
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(formattedProducts);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Id Card Details");
+    XLSX.writeFile(workbook, "View-Id-Card-Details.xlsx");
+  };
+
 
   const tableColumns = (currentPage, rowsPerPage) => [
     {
@@ -169,7 +168,7 @@ useEffect(() => {
     {
       name: "Full Name",
       cell: (row) => `${row.fname} ${row.mname} ${row.fathername} ${row.lname}`,
-      width:"250px",
+      width: "250px",
 
     },
     {
@@ -255,33 +254,33 @@ useEffect(() => {
                   />
                 </Col>
               </Row>
-               <Row className="mt-3">
-                              <Col className="d-flex justify-content-end">
-                                <Button
-                                  variant="primary"
-                                  onClick={exportExcel}
-                                >
-                                  <FaDownLong /> Export to Excel
-                                </Button>
-                              </Col>
-                            </Row>
+              <Row className="mt-3">
+                <Col className="d-flex justify-content-end">
+                  <Button
+                    variant="primary"
+                    onClick={exportExcel}
+                  >
+                    <FaDownLong /> Export to Excel
+                  </Button>
+                </Col>
+              </Row>
             </Card.Header>
 
             <Card.Body> <DataTable
-  key={forceUpdate}
-  columns={tableColumns(currentPage, rowsPerPage)}
-  data={searchQuery ? filteredData : products} // Use filtered data only when searching
-  pagination
-  paginationServer
-  paginationTotalRows={products.length}
-  onChangePage={(page) => {
-    setCurrentPage(page);
-    handleSearch(""); // Reset search when changing pages
-  }}
-  responsive
-  striped
-  noDataComponent="No Data Available"
-/>
+              key={forceUpdate}
+              columns={tableColumns(currentPage, rowsPerPage)}
+              data={searchQuery ? filteredData : products} // Use filtered data only when searching
+              pagination
+              paginationServer
+              paginationTotalRows={products.length}
+              onChangePage={(page) => {
+                setCurrentPage(page);
+                handleSearch(""); // Reset search when changing pages
+              }}
+              responsive
+              striped
+              noDataComponent="No Data Available"
+            />
 
             </Card.Body>
           </Card>

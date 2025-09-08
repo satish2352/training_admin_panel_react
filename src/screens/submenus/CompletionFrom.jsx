@@ -171,7 +171,6 @@ const CompletionFrom = () => {
           { headers: { Authorization: `Bearer ${token}` } }
         );
         const data = response.data;
-        // console.log(data[0].fname);
         if (!data) {
           toast.error("Add Intern Details First", {
             position: "top-right",
@@ -607,7 +606,6 @@ const CompletionFrom = () => {
 
       formDataToSubmit.append("stude_id", id);
 
-      console.log("Submitting Form Data:", Object.fromEntries(formDataToSubmit.entries()));
 
       const response = await axios.post(
         "https://api.sumagotraining.in/public/api/intern-completion/add",
@@ -622,7 +620,6 @@ const CompletionFrom = () => {
 
       if (response) {
         toast.success("Data submitted successfully!");
-        console.log("Final formData before submitting:", formData);
 
         navigate("/viewcompletion");
       } else {

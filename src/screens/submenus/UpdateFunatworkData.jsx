@@ -92,7 +92,6 @@ const UpdateFunatworkData = () => {
 
             // Ensure response.data.data is an array
             const funatworkData = Array.isArray(response.data?.data) ? response.data.data : [];
-            console.log(funatworkData)
             setFunatworkCategory(funatworkData); // Store fetched subcourses
         } catch (err) {
             console.error("Error fetching fun at work data:", err);

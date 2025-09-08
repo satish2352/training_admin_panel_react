@@ -816,7 +816,6 @@ function InterJoining() {
             if (response.ok) {
                 // If submission is successful
                 alert("Data submitted successfully!");
-                console.log("Response Data:", responseData);
             } else {
                 // Handle validation errors or other issues from the server
                 if (responseData.errors) {
