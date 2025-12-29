@@ -224,7 +224,7 @@ const UpdateRecognitiondetails = () => {
                                                 <Form.Label>Description</Form.Label>
                                                 <Form.Control type="text" as={"textarea"} placeholder="Enter Course Name" value={description} onChange={(e) => setDescription(e.target.value)} />
                                             </Form.Group>
-
+{/* 
                                             <Form.Group className="mb-3">
                                                 <Form.Label>Title</Form.Label>
                                                 <Form.Control type="text" placeholder="Enter Title" value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -240,7 +240,7 @@ const UpdateRecognitiondetails = () => {
                                                     value={description}
                                                     onChange={(e) => setDescription(e.target.value)}
                                                 />
-                                            </Form.Group>
+                                            </Form.Group> */}
 
                                             <Form.Group className="mb-3">
                                                 <Form.Label>Upload Image (Drag and Drop or Click)</Form.Label>
